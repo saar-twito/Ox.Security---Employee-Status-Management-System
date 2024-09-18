@@ -5,7 +5,9 @@ import DashboardEmployeeList from './components/DashboardEmployeeList/DashboardE
 import './App.css';
 
 const client = new ApolloClient({
-  uri: 'http://localhost:4000/graphql', // Replace with your actual server URL
+  uri: process.env.NODE_ENV === 'production'
+    ? 'https://ox-security-server.onrender.com/graphql'
+    : 'http://localhost:4000/graphql',
   cache: new InMemoryCache(),
 });
 

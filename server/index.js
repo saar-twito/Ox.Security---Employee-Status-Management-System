@@ -19,8 +19,18 @@ const server = new ApolloServer({
 
 const PORT = process.env.PORT || 4000;
 
+// Set the CORS origin based on the environment
+const allowedOrigins = process.env.NODE_ENV === 'production'
+  ? ['https://ox-security-client.onrender.com'] // Production URL
+  : ['http://localhost:3000']; // Local development URL
+
 const { url } = await startStandaloneServer(server, {
-  listen: { port: PORT }
-})
+  listen: { port: PORT },
+  context: async ({ req }) => ({ req }),
+  cors: {
+    origin: allowedOrigins,  // Dynamically allow the correct origin
+    credentials: true,
+  },
+});
 
 console.log(`Server running on port: ${url}`)
