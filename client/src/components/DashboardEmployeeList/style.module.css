@@ -1,0 +1,44 @@
+.dashboardContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1170px;
+  margin: 0 auto;
+}
+
+.dashboard button {
+  margin-bottom: 30px;
+  border: none;
+  background: #202D3B;
+  color: white;
+  padding: 18px 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1.25rem;
+  transition: background 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dashboard button:hover {
+  background: #263545;
+}
+
+.employeeList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+@media screen and (min-width: 1150px) {
+
+  .dashboard button {
+    align-self: flex-start;
+  }
+
+  .employeeList {
+    justify-content: space-between;
+  }
+}
